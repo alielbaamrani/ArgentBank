@@ -1,5 +1,5 @@
-import React from "react";
-import "./feature.scss";
+import React from "react"
+import "./feature.scss"
 
 function Feature({ logo, title, text }) {
   return (
@@ -8,7 +8,7 @@ function Feature({ logo, title, text }) {
       <h3 className="feature-item-title">{title}</h3>
       <p>{text}</p>
     </div>
-  );
+  )
 }
 
-export default Feature;
+export default Feature

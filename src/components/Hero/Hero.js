@@ -13,6 +13,7 @@ function Hero() {
       </section>
     </div>
   );
+  
 }
 
 export default Hero;
