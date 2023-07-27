@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
 import Hero from "../../components/Hero/Hero";
 import Footer from "../../components/Footer/Footer";
 import Feature from "../../components/Feature/Feature";
@@ -12,7 +11,6 @@ import "../../utils/reset.scss";
 function Home() {
   return (
     <div>
-      <Navbar />
       <Hero />
       <div className="features">
         <Feature

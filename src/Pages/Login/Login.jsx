@@ -1,38 +1,44 @@
-import React, { useEffect, useState } from 'react'
-import Navbar from '../../components/Navbar/Navbar'
+import React, { useState, useEffect } from 'react'
 import Footer from '../../components/Footer/Footer'
-import { NavLink } from 'react-router-dom'
-import { postLogin } from '../../api/apiSlice'
-
-// import axios from "axios";
-
+import { login } from '../../api/apiSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import './Login.scss'
 import '../../utils/reset.scss'
-import axios from 'axios'
 
 function Login() {
-  const [emailValue, setEmailValue] = useState('')
-  const [passwordValue, setPasswordValue] = useState('')
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  const test = async (e) => {
+  const { token } = useSelector((state) => state.userLogin)
+
+  const [email, setEmailValue] = useState('')
+  const [password, setPasswordValue] = useState('')
+
+  const submitLogin = async (e) => {
     e.preventDefault()
-    postLogin(emailValue, passwordValue)
+    dispatch(login(email, password))
   }
 
+  useEffect(() => {
+    if (token) {
+      navigate('/profile')
+    }
+  })
   return (
-    <div className='login'>
-      <Navbar />
+    <div className="login">
       <main className="main bg-dark">
         <section className="sign-in-content">
           <i className="fa fa-user-circle sign-in-icon"></i>
-          <h1>Sign In {emailValue}</h1>
-          <form>
+          <h1>Sign In </h1>
+          <form onSubmit={submitLogin}>
             <div className="input-wrapper">
               <label htmlFor="username">Username</label>
               <input
                 type="text"
                 id="username"
                 onChange={(e) => setEmailValue(e.target.value)}
+                required
               />
             </div>
             <div className="input-wrapper">
@@ -41,6 +47,7 @@ function Login() {
                 type="password"
                 id="password"
                 onChange={(e) => setPasswordValue(e.target.value)}
+                required
               />
             </div>
             <div className="input-remember">
@@ -48,11 +55,9 @@ function Login() {
               <label htmlFor="remember-me">Remember me</label>
             </div>
 
-            <button onClick={test} className="sign-in-button">
-              sign-In
-              {/* <NavLink to="/user">Sign In</NavLink> */}
-            </button>
+            <input type="submit" value="submit" className="sign-in-button"></input>
           </form>
+          <p></p>
         </section>
       </main>
       <Footer />

@@ -1,10 +1,10 @@
-import { combineReducers } from '@reduxjs/toolkit'
-import { isLoggoutReducer, isLoginReducer } from './reducers/reducers'
+import { configureStore } from '@reduxjs/toolkit'
+import { loginReducer } from './reducers/loginReducer'
+import { userReducer } from './reducers/userReducer'
 
-const reducer = combineReducers({
-  isLogin: isLoginReducer,
-  isLoggout: isLoggoutReducer,
+export const store = configureStore({
+  reducer: {
+    userLogin: loginReducer,
+    userProfile: userReducer,
+  },
 })
-
-
-const store = createStore(reducer);
