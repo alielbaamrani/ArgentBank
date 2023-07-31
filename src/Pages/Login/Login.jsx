@@ -11,6 +11,9 @@ function Login() {
   const navigate = useNavigate()
 
   const { token } = useSelector((state) => state.userLogin)
+  const { errorMessage } = useSelector((state) => state.error)
+  
+
 
   const [email, setEmailValue] = useState('')
   const [password, setPasswordValue] = useState('')
@@ -57,7 +60,7 @@ function Login() {
 
             <input type="submit" value="submit" className="sign-in-button"></input>
           </form>
-          <p></p>
+          <p>{errorMessage}</p>
         </section>
       </main>
       <Footer />

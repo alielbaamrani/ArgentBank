@@ -1,3 +1,4 @@
+import { USER_LOGIN_ERROR } from '../reducers/errorReducer'
 import { USER_LOGIN_SUCCESS, USER_LOGOUT } from '../reducers/loginReducer'
 import {
   USER_PROFILE_SUCCESS,
@@ -25,6 +26,13 @@ export const login = (email, password) => async (dispatch) => {
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data })
     dispatch(userProfile(data.body.token))
   } catch (error) {
+    dispatch({
+      type: USER_LOGIN_ERROR,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
     console.log('ERROR_USER_LOGIN_SUCCESS')
   }
 }
