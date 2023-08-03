@@ -4,6 +4,8 @@ import './navbar.scss'
 import { NavLink, Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../../api/apiSlice'
+// import { selectCurrentToken, logOut } from '../../features/authSlice'
+
 
 export default function Navbar() {
   const navigate = useNavigate()
@@ -14,8 +16,7 @@ export default function Navbar() {
 
   const logoutHandler = () => {
     dispatch(logout())
-    navigate('/')
-  }
+    navigate('/')  }
 
   return (
     <nav className="main-nav">
@@ -41,7 +42,7 @@ export default function Navbar() {
           ''
         )}
         {token ? (
-          <Link onClick={() => logoutHandler()} className="main-nav-item" to={'/'}>
+          <Link onClick={logoutHandler} className="main-nav-item" to={'/'}> 
             <i className="fa fa-sign-out"></i>
             Sign Out
           </Link>
