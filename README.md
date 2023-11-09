@@ -1,4 +1,4 @@
-# ArgentBank
+# ArgentBank - Utilisez une API pour un compte utilisateur bancaire avec React
 
 ArgentBank - Projet 10 - OpenClassRoom
 
