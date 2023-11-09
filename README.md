@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# ArgentBank
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ArgentBank - Projet 9 - OpenClassRoom
 
 ## Available Scripts
 
