@@ -1,6 +1,6 @@
 # ArgentBank
 
-ArgentBank - Projet 9 - OpenClassRoom
+ArgentBank - Projet 10 - OpenClassRoom
 
 ## Available Scripts
 
